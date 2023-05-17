@@ -1,0 +1,53 @@
+   <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.js"></script>
+   <!-- Include the core CSS, this is needed by the grid -->
+   <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/styles/ag-grid.css"/>
+   <!-- Include the theme CSS, only need to import the theme you are going to use -->
+   <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/styles/ag-theme-alpine.css"/>
+
+<h1>LISTA BOLLE DOGANALI EXPORT</h1>
+<button
+      onclick="onBtExport()"
+      style="margin-bottom: 5px; font-weight: bold"
+    >
+      Export to Excel
+    </button>
+<div id="myGrid" style="height: 750px; width:1500px;" class="ag-theme-alpine"></div>
+
+<script>
+// specify the data
+var rowData = [
+{{#each bolla}}
+  {LAARE0: {{this.LAARE0}}, LANRE0: {{this.LANRE0}}, LADER0: {{this.LADER0}}, LATBO0: "{{this.LATBO0}}", LABNR0: {{this.LABNR0}}, LABDT0: {{this.LABDT0}}, LABTI0: "{{this.LABTI0}}", LASTR0: "{{this.LASTR0}}"},
+{{/each}}
+];
+
+const SimpleComp = (params) => params.value;
+// let the grid know which columns and what data to use
+var gridOptions = {
+  columnDefs: [
+  {headerName: "Anno. reg.", field: "LAARE0", cellRenderer: SimpleComp },
+  {headerName: "Nr. reg", field: "LANRE0"},
+  {headerName: "Deroga", field: "LADER0"},
+  {headerName: "Tipo", field: "LATBO0"},
+  {headerName: "Nr.bolla", field: "LABNR0"},
+  {headerName: "Dt.bolla", field: "LABDT0"},
+  {headerName: "Tp.bolla", field: "LABTI0"},
+  {headerName: "Annullata", field: "LASTR0"}
+  ],
+  rowData: rowData,
+  defaultColDef: {sortable: true, filter: true},
+  rowSelection: 'multiple',
+  animateRows: true,
+  onCellClicked: params => {
+    console.log('la cella è stata cliccata', params)
+  }
+};
+function onBtExport() {
+  gridOptions.api.exportDataAsExcel();
+}
+// setup the grid after the page has finished loading
+document.addEventListener('DOMContentLoaded', function() {
+    var gridDiv = document.querySelector('#myGrid');
+    new agGrid.Grid(gridDiv, gridOptions);
+});
+</script>

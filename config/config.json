@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "antodino",
+    "password": "dinoceraa",
+    "database": "nodejs",
+    "host": "127.0.0.1",
+    "dialect": "ibmi"
+  },
+  "test": {
+    "username": "antodino",
+    "password": "dinoceraa",
+    "database": "nodejs",
+    "host": "127.0.0.1",
+    "dialect": "ibmi"
+  },
+  "production": {
+    "username": "antodino",
+    "password": "dinoceraa",
+    "database": "nodejs",
+    "host": "127.0.0.1",
+    "dialect": "ibmi"
+  }
+}

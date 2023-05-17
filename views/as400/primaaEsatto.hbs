@@ -1,0 +1,190 @@
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.4.0/css/select.dataTables.min.css">
+
+
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+        Selezioni
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne">
+      <div class="accordion-body">
+        <form class="row g-3" name="formSelezione" id="formSelezione">
+          <div class="col-md-4">
+            <label for="annoreg" class="form-label">Anno Reg.</label>
+            <input type="text" class="form-control" id="annoreg">
+          </div>
+          <div class="col-md-4">
+            <label for="numeroReg" class="form-label">Numero Reg.</label>
+            <input type="text" class="form-control" id="numeroReg">
+          </div>
+          <div class="col-md-4">
+            <label for="deroga" class="form-label">Deroga</label>
+            <input type="text" class="form-control" id="deroga">
+          </div>
+          <div class="col-md-3">
+            <label for="tipo" class="form-label">Tipo</label>
+            <select class="form-select" id="tipo" name="tipo">
+              <option selected value="">TUTTI</option>
+              <option>S</option>
+              <option>G</option>
+              <option>C</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label for="numerobolla" class="form-label">Numero Bolla</label>
+            <input type="text" class="form-control" id="numerobolla">
+          </div>
+          <div class="col-md-3">
+            <label for="tipologiaBolla" class="form-label">Tipologia Bolla</label>
+            <input type="text" class="form-control" id="tipologiaBolla">
+          </div>
+          <div class="col-12">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="annullato">
+              <label class="form-check-label" for="annullato">
+                Annullata
+              </label>
+            </div>
+          </div>
+          <div class="col-12">
+            <!--<button class="btn btn-primary" type="submit">Conferma</button>-->
+            <button onclick="selezioniTabella(this); return false" class="btn btn-primary" id="btnconferma" name="btnconferma" title="SELEZIONI">
+              Conferma
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h1>LISTA BOLLE DOGANALI EXPORT</h1>
+<p></p>
+<table id="lista_bolle_doganali_export" class="display nowrap" style="width:100%">
+        <thead>
+           <tr>
+              <th rowspan="2">S</th>
+              <th colspan="2">Registrazione</th>
+              <th rowspan="2">Deroga</th>
+              <th rowspan="2">Tipo</th>
+              <th rowspan="2">T.Cnt.</th>
+              <th colspan="3">Bolla</th>
+            </tr>
+            <tr>
+              <th>Anno</th>
+              <th>Numero</th>
+              <th>Numero</th>
+              <th>Data</th>
+              <th>Tipologia</th>
+              <th>Annulata</th>
+              <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each bolla}}
+            <tr>
+              <td></td>
+              <td>{{this.LAARE0}}</td>
+              <td>{{this.LANRE0}}</td>
+              <td>{{this.LADER0}}</td>
+              <td>{{this.LATBO0}}</td>
+              <td>{{this.TCNT}}</td>
+              <td>{{this.LABNR0}}</td>
+              <td>{{this.LABDT0}}</td>
+              <td>{{this.LABTI0}}</td>
+              <td>{{this.LASTR0}}</td>
+              <td></td>
+            </tr>
+            {{/each}}
+        </tbody>
+        <!--<tfoot>
+            <tr>
+              <th>S</th>
+              <th>Anno reg.</th>
+              <th>Nr. reg.</th>
+              <th>Prg. reg.</th>
+              <th>Tipo bolla</th>
+              <th>Numero</th>
+              <th>Data</th>
+              <th>Tipologia</th>
+              <th>Cntr</th>
+              <th>Mrn</th>
+            </tr>
+        </tfoot>-->
+    </table>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/select/1.4.0/js/dataTables.select.min.js"></script>
+
+    <script>
+      $(document).ready(function() {
+          var table = $('#lista_bolle_doganali_export').DataTable( {
+              dom: 'Bfrtip',
+              buttons: [
+                  'copy', 'csv', 'excel', 'pdf', 'print'
+              ],
+              columnDefs: [ {
+                orderable: false,
+                className: 'select-checkbox',
+                targets:   0
+                },
+                {
+                targets: -1,
+                data: null,
+                defaultContent: '<button>Dettaglio</button>',
+                } ],
+              select: {
+              style:    'os',
+              selector: 'td:first-child'
+              },
+              rowCallback: function(row, data, index){
+                $(row).find('td:eq(1)').css('color', 'blue');
+                $(row).find('td:eq(2)').css('color', 'blue');
+                $(row).find('td:eq(4)').css('color', 'red');
+                $(row).find('td:eq(5)').css('color', 'green');
+            }
+          } );
+
+          $('#lista_bolle_doganali_export tbody').on('click', 'button', function () {
+            var data = table.row($(this).parents('tr')).data();
+            //alert(data[2]);
+            dettaglioBolla(data[1], data[2]);
+          });
+      } );
+
+    async function dettaglioBolla(annoReg, numeroReg) {
+      try {
+    {location.href = '/as400/primaab/'+annoReg+numeroReg};
+      } catch (e) {
+          Swal.fire(e.message)
+      }
+    }
+
+    async function selezioniTabella(f) {
+      const form = document.getElementById('formSelezione');
+      let tipo;
+      if (form.tipo.value==""){
+        tipo="T";
+      }else{
+        tipo=form.tipo.value;
+      };
+      console.log(tipo)
+      if(form.numeroReg.value==""){form.numeroReg.value="000000"};
+        try {
+       {location.href = '/as400/primaa/'+tipo+form.numeroReg.value};
+        } catch (e) {
+            Swal.fire(e.message)
+        }
+    }
+    </script>

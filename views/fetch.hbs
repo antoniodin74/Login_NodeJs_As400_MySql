@@ -1,0 +1,58 @@
+<h1>BOLLA</h1>
+<p></p>
+<div>
+    <ul>
+        {{#each fetch}}
+        <li>
+            <h5 style="display:inline">IdentificativoUnivocoBolla : </h5> {{this.IdentificativoUnivocoBolla}}
+        </li>
+        <li>
+            <h5 style="display:inline">TipoBolla : </h5> {{this.TipoBolla}}
+        </li>
+        <li>
+            <h5 style="display:inline">TipoFormulario : </h5> {{this.TipoFormulario}}
+        </li>
+        <li>
+            <h5 style="display:inline">TipoDichiarazione : </h5> {{this.TipoDichiarazione}}
+        </li>
+        <li>
+            <h5 style="display:inline">DataAccettazione : </h5> {{this.DataAccettazione}}
+        </li>
+        <li>
+            <h5 style="display:inline">NumeroArticoli : </h5> {{this.NumeroArticoli}}
+        </li>
+        <li>
+            <h5 style="display:inline">TotaleMassaLorda : </h5> {{this.TotaleMassaLorda}}
+        </li>
+        <li>
+            <h5 style="display:inline">TotaleMassaNetta : </h5> {{this.TotaleMassaNetta}}
+        </li>
+        <li>
+            <h5 style="display:inline">TotaleColli : </h5> {{this.TotaleColli}}
+        </li>
+        <li>
+            <h5 style="display:inline">DoganaPresentazione : </h5> {{this.DoganaPresentazione}}
+        </li>
+        <li>
+            <h5 style="display:inline">RagioneSociale : </h5> {{this.SpeditoreEsportatore.[0].RagioneSociale}}
+        </li>
+        <li>
+            <h5 style="display:inline">Indirizzo : </h5> {{this.SpeditoreEsportatore.[0].Indirizzo}}
+        </li>
+         <li>
+            <h5 style="display:inline">Cap : </h5> {{this.SpeditoreEsportatore.[0].Cap}}
+        </li>
+         <li>
+            <h5 style="display:inline">Citta : </h5> {{this.SpeditoreEsportatore.[0].Citta}}
+        </li>
+         <li>
+            <h5 style="display:inline">Paese : </h5> {{this.SpeditoreEsportatore.[0].Paese}}
+        </li>
+         <li>
+            <h5 style="display:inline">Eori : </h5> {{this.SpeditoreEsportatore.[0].Eori}}
+        </li>
+
+        {{/each}}
+    </ul>
+  </div>
+

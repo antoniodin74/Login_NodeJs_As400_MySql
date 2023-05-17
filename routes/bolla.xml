@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<BollaEt xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <IdentificativoUnivocoBolla>c868913a-8e6d-4775-a421-a4422caef770</IdentificativoUnivocoBolla>
+  <TipoBolla>EX</TipoBolla>
+  <TipoFormulario>EX</TipoFormulario>
+  <TipoDichiarazione>PressoDogana</TipoDichiarazione>
+  <TipoSpedizione />
+  <DataAccettazione>2022-12-01T00:00:00</DataAccettazione>
+  <NumeroArticoli>3</NumeroArticoli>
+  <TotaleMassaLorda>4650.000</TotaleMassaLorda>
+  <TotaleMassaNetta>4530.000</TotaleMassaNetta>
+  <TotaleColli>183</TotaleColli>
+  <DoganaPresentazione>IT281100</DoganaPresentazione>
+  <SpeditoreEsportatore>
+    <RagioneSociale>IAQUONE SRL</RagioneSociale>
+    <Indirizzo>VIA BORGO SN</Indirizzo>
+    <Cap>03030</Cap>
+    <Citta>VICALVI</Citta>
+    <Paese>IT</Paese>
+    <Eori>IT00090750605</Eori>
+  </SpeditoreEsportatore>
+  <Destinatario>
+    <RagioneSociale>VITA VERDE D/B/A FLORA FINE FOODS</RagioneSociale>
+    <Indirizzo>11927 W SAMPLE ROAD</Indirizzo>
+    <Cap>33065</Cap>
+    <Citta>CORAL SPRINGS, USA</Citta>
+    <Paese>US</Paese>
+    <Eori>US20-587249600</Eori>
+  </Destinatario>
+  <PaeseSpedizione>IT</PaeseSpedizione>
+  <PaeseDestinazione>US</PaeseDestinazione>
+  <NumeroProgressivoAnnualePratica>22065</NumeroProgressivoAnnualePratica>
+  <UfficioDestinazione />
+  <EstremiRegistrazione>
+    <DataEsito>2022-12-01T00:00:00</DataEsito>
+    <SerieRegistro />
+    <NumeroRegistrazione>106326</NumeroRegistrazione>
+    <A93>002093</A93>
+    <Cin>M</Cin>
+    <CodiceRegistro>1</CodiceRegistro>
+    <Conto>015299</Conto>
+    <Mrn>22ITQWR010106326E7</Mrn>
+  </EstremiRegistrazione>
+  <NumeroCarico xsi:nil="true" />
+  <AnnoCarico xsi:nil="true" />
+  <Articoli>
+    <Articolo>
+      <NumeroArticolo>1</NumeroArticolo>
+      <DescrizioneMerce>MISCELA E PASTE PER PANETTERIA, PASTICCERIA</DescrizioneMerce>
+      <AltreIndicazioni />
+      <NomenclaturaCombinata>19012000</NomenclaturaCombinata>
+      <Containers>
+        <Sigla>MSDU8298273</Sigla>
+      </Containers>
+      <Regime>1000</Regime>
+      <MassaLorda>4619.500</MassaLorda>
+      <MassaNetta>4500.000</MassaNetta>
+      <UnitaSupplementare>0.000</UnitaSupplementare>
+      <ContieneUnitaSupplementare>true</ContieneUnitaSupplementare>
+      <Imballaggi />
+    </Articolo>
+    <Articolo>
+      <NumeroArticolo>2</NumeroArticolo>
+      <DescrizioneMerce>LIEVITI DI PANIFICAZIONE SECCHI</DescrizioneMerce>
+      <AltreIndicazioni />
+      <NomenclaturaCombinata>21021031</NomenclaturaCombinata>
+      <Containers />
+      <Regime>1000</Regime>
+      <MassaLorda>30.500</MassaLorda>
+      <MassaNetta>30.000</MassaNetta>
+      <UnitaSupplementare>0.000</UnitaSupplementare>
+      <ContieneUnitaSupplementare>true</ContieneUnitaSupplementare>
+      <Imballaggi />
+    </Articolo>
+  </Articoli>
+</BollaEt>

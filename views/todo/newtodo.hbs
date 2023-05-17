@@ -1,0 +1,42 @@
+<script>
+    async function insertTodo(f) {
+        try {
+          
+        const res = await axios.post('/todo',
+            {
+                nometodo : f.nometodo.value,
+                descrizionetodo : f.descrizionetodo.value
+            }
+        );
+        Swal.fire({
+            type : 'success',
+            text : 'Inserimento effettuato con successo',
+            icon: 'success'
+        }).then (() =>{location.href = '/todo'});
+        } catch (e) {
+            Swal.fire(e.message)
+        }
+    }
+</script>
+<h1>INSERIMENTO</h1>
+<form onsubmit="insertTodo(this); return false" class="was-validated" name="newtodo">
+    <div class="mb-3">
+        <label for="nometodo" class="form-label">Nome Todo</label>
+        <textarea class="form-control" name="nometodo" id="nometodo" placeholder="Required nome todo" required></textarea>
+        <div class="invalid-feedback">
+        Please enter a nome in the textarea.
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="descrizionetodo" class="form-label">Descrizione Todo</label>
+        <textarea class="form-control" name="descrizionetodo" id="descrizionetodo" placeholder="Required descrizione todo" required></textarea>
+        <div class="invalid-feedback">
+        Please enter a descrizione in the textarea.
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary" value="PUT" title="INSERT">
+         Conferma
+    </button>
+</form>
+
+

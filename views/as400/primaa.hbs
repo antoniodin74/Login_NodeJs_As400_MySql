@@ -1,0 +1,202 @@
+<style>
+    
+</style>
+<h6 class="titolo-lista_bolle_doganali_export text-center">LISTA BOLLE DOGANALI EXPORT</h6>
+<p></p>
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+        Selezioni
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne">
+      <div class="accordion-body">
+        <form method="get" action="/as400/primaa" class="row g-3" name="formSelezione" id="formSelezione">
+        <div class="col-md-12">
+          <input type="text" class="form-control" name="dtiso" id="dtiso">
+        </div>
+        <div class="col-md-6">
+          <input type="text" class="form-control" name="dtini" id="dtini">
+        </div>
+        <div class="col-md-6">
+          <input type="text" class="form-control" name="dtfin" id="dtfin">
+        </div>
+        <div class="col-md-6 input-group date" id="datepicker1">
+            <input type="text" class="form-control" name="datada" id="datada" placeholder="Data da">
+            <span class="input-group-append"></span>
+            <span class="input-group-text bg-white">
+              <i class="fa fa-calendar"></i>
+            </span>
+        </div>
+        <div class="col-md-6 input-group date" id="datepicker2">
+            <input type="text" class="form-control" name="dataa" id="dataa" placeholder="Data a">
+            <span class="input-group-append"></span>
+            <span class="input-group-text bg-white">
+              <i class="fa fa-calendar"></i>
+            </span>
+        </div>
+          <div class="col-md-4">
+            <input type="text" class="form-control" name="annoreg" id="annoreg" placeholder="Anno reg.">
+          </div>
+          <div class="col-md-4">
+            <input type="text" class="form-control" name="numeroReg" id="numeroReg" placeholder="Numero reg.">
+          </div>
+          <div class="col-md-4">
+            <input type="text" class="form-control" name="deroga" id="deroga" placeholder="Deroga">
+          </div>
+          <div class="col-md-6">
+            <input type="text" class="form-control" name="numerobolla" id="numerobolla" placeholder="Numero Bolla">
+          </div>
+          <div class="col-md-6">
+            <input type="text" class="form-control" name="tipologiaBolla" id="tipologiaBolla" placeholder="Tipologia Bolla">
+          </div>
+          <div class="col-md-12">
+            <label for="tipo" class="form-label">Tipo</label>
+            <select class="form-select" id="tipo" name="tipo">
+              <option selected value="">TUTTI </option>
+              <option>S</option>
+              <option>G</option>
+              <option>C</option>
+            </select>
+          </div>
+          <div class="col-12">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" name="annullato" id="annullato">
+              <label class="form-check-label" for="annullato">
+                Annullata
+              </label>
+            </div>
+          </div>
+          <div class="col-12">
+            <!--<button class="btn btn-primary" type="submit">Conferma</button>-->
+            <button type="submit" class="btn btn-primary" id="btnconferma" name="btnconferma" title="SELEZIONI">
+              Conferma
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p></p>
+<table id="lista_bolle_doganali_export" class="compact hover order-column" style="width:100%">
+        <thead>
+            <tr>
+              <th>Anno</th>
+              <th>Numero</th>
+              <th>Deroga</th>
+              <th>Tipo</th>
+              <th>T.Cnt.</th>
+              <th>Numero Bolla</th>
+              <th>Data</th>
+              <th>Tipologia</th>
+              <th>Annulata</th>
+              <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each bolla}}
+            <tr>
+              <td>{{this.LAARE0}}</td>
+              <td>{{this.LANRE0}}</td>
+              <td>{{this.LADER0}}</td>
+              <td>{{this.LATBO0}}</td>
+              <td>{{this.TCNT}}</td>
+              <td>{{this.LABNR0}}</td>
+              <td>{{this.LABDT0}}</td>
+              <td>{{this.LABTI0}}</td>
+              <td>{{this.LASTR0}}</td>
+              <td></td>
+            </tr>
+            {{/each}}
+        </tbody>
+        <!--<tfoot>
+            <tr>
+              <th>S</th>
+              <th>Anno reg.</th>
+              <th>Nr. reg.</th>
+              <th>Prg. reg.</th>
+              <th>Tipo bolla</th>
+              <th>Numero</th>
+              <th>Data</th>
+              <th>Tipologia</th>
+              <th>Cntr</th>
+              <th>Mrn</th>
+            </tr>
+        </tfoot>-->
+    </table>
+
+
+
+
+    <script>
+      
+      $(document).ready(function() {
+        $('#datepicker1').datepicker({
+          format: 'dd/mm/yyyy',
+          startDate: '-3d',
+          clearBtn: true,
+          language: "it",
+          autoclose: true,
+          todayHighlight: true
+        });
+        $('#datepicker1').on('changeDate', function() {
+          $('#dtini').val(
+            $('#datepicker1').datepicker('getFormattedDate')
+          );
+        });
+        $('#datepicker2').datepicker({
+          format: 'dd/mm/yyyy',
+          startDate: '-3d',
+          clearBtn: true,
+          language: "it",
+          autoclose: true,
+          todayHighlight: true
+        });
+        $('#datepicker2').on('changeDate', function() {
+          $('#dtfin').val(
+            $('#datepicker2').datepicker('getFormattedDate')
+          );
+        });
+
+          var table = $('#lista_bolle_doganali_export').DataTable( {
+              dom: 'Bfrtip',
+              buttons: [
+                  'copy', 'csv', 'excel', 'pdf', 'print'
+              ],
+              columnDefs: [ 
+                {
+                targets: -1,
+                data: null,
+                defaultContent: '<button class="button-lista_bolle_doganali_export">Dettaglio</button>',
+                } ],
+              select: {
+              style:    'os',
+              selector: 'td:first-child'
+              },
+              rowCallback: function(row, data, index){
+                //$(row).find('td:eq(1)').css('color', '#989cf0');
+                //$(row).find('td:eq(2)').css('color', 'blue');
+                //$(row).find('td:eq(4)').css('color', 'red');
+                //$(row).find('td:eq(5)').css('color', 'green');
+            }
+          } );
+
+          $('#lista_bolle_doganali_export tbody').on('click', 'button', function () {
+            var data = table.row($(this).parents('tr')).data();
+            //alert(data[1]);
+            dettaglioBolla(data[0], data[1]);
+          });
+          
+      } );
+
+    async function dettaglioBolla(annoReg, numeroReg) {
+      try {
+    {location.href = '/as400/primaab/'+annoReg+'/'+numeroReg};
+      } catch (e) {
+          Swal.fire(e.message)
+      }
+    }
+    </script>

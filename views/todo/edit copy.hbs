@@ -1,0 +1,22 @@
+<form method="post" action="/todo/{{this.id}}" class="was-validated">
+    <div class="mb-3">
+        <label for="nometodo" class="form-label">Nome Todo</label>
+        <textarea class="form-control" name="nometodo" id="nometodo" placeholder="Required nome todo" required>{{nometodo}}</textarea>
+        <div class="invalid-feedback">
+        Please enter a nome in the textarea.
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="descrizionetodo" class="form-label">Descrizione Todo</label>
+        <textarea class="form-control" name="descrizionetodo" id="descrizionetodo" placeholder="Required descrizione todo" required>{{descrizionetodo}}</textarea>
+        <div class="invalid-feedback">
+        Please enter a descrizione in the textarea.
+        </div>
+    </div>
+    <button  value="UPDATE" type="onsubmit" class="btn btn-primary" title="UPDATE">
+         Conferma
+    </button>
+    <input type="hidden" name="_method" id="method" value="PATCH">     
+</form>
+
+

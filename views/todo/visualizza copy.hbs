@@ -1,0 +1,20 @@
+<h1>VISUALIZZA 
+    <small class="text-muted">
+        ({{completed completato}})
+    </small>
+</h1>
+<form  action="/todo" class="was-validated">
+    <div class="mb-3">
+        <label for="nometodo" class="form-label">Nome Todo</label>
+        <textarea class="form-control" id="nometodo" placeholder="Required nome todo" readonly>{{nometodo}}</textarea>
+    </div>
+    <div class="mb-3">
+        <label for="descrizionetodo" class="form-label">Descrizione Todo</label>
+        <textarea class="form-control" id="descrizionetodo" placeholder="Required descrizione todo" readonly>{{descrizionetodo}}</textarea>
+    </div>
+
+    <div class="mb-3">
+        <button class="btn btn-primary" type="submit">Indietro</button>
+        <button class="btn btn-danger" type="submit">Completa</button>
+    </div>
+</form>

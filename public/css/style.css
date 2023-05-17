@@ -1,0 +1,44 @@
+.alert{
+    transition: opacity 10s;
+}
+
+p.limited-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px;
+  }
+
+.titolo-lista_bolle_doganali_export {
+    background-color: #79ffff;
+    color: rgb(40, 41, 48);
+    border: 1px solid rgb(40, 41, 48);
+    border-radius: 50px 20px;
+}
+#lista_bolle_doganali_export.dataTable tbody tr {
+    background-color: #eaffff;
+}
+#lista_bolle_doganali_export.dataTable thead tr {
+    background-color: #eaffff;
+}
+.button-lista_bolle_doganali_export {
+    background-color: #79ffff;
+    color: rgb(40, 41, 48);
+    border: 1px solid rgb(40, 41, 48);
+    border-radius: 50px 20px;
+}
+.dt-button {
+    background-color: #79ffff !important;
+    color: rgb(40, 41, 48) !important;
+    border: 1px solid rgb(40, 41, 48) !important;
+    border-radius: 50px 20px !important;
+}
+.paginate_button {
+    color: rgb(40, 41, 48) !important;
+}
+.paginate_button a {
+    background-color: #79ffff !important;
+    color: rgb(40, 41, 48) !important;
+    border: 1px solid rgb(40, 41, 48) !important;
+    border-radius: 50px 20px !important;
+}

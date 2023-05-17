@@ -1,0 +1,56 @@
+<script>
+   async function changepwd(f) {
+        try {
+           
+        const res = await axios.post('/auth/changepwd',
+            {
+                email : f.email.value,
+                passwordOld : f.passwordOld.value,
+                passwordNew : f.passwordNew.value
+            }
+        );
+        //console.log(res.data);
+        
+        Swal.fire({
+            type : 'success',
+            text : 'Operazione eseguita con successo!'
+        }).then (() =>{location.href = '/'});
+        } catch (e) {
+            Swal.fire(e.response.data.message)
+            //Swal.fire(e.message)
+        }
+    }
+</script>
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <h2>CAMBIO PASSWORD</h2>  
+        <form action="/auth/changepwd" method="post" onsubmit="changepwd(this); return false">
+            <div class="form-group">
+                <label for="email" class="form-label">Email address</label>
+                <input required type="email" class="form-control" id="email" name="email" aria-describedby="email">
+            </div>
+            <div class="form-group">
+                <label for="passwordOld" class="form-label">Password attuale</label>
+                <input required type="password" class="form-control" id="passwordOld" name="passwordOld">
+            </div>
+            <div class="form-group">
+                <label for="passwordNew" class="form-label">Password nuova</label>
+                <input required type="password" class="form-control" id="passwordNew" name="passwordNew">
+            </div>
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary">
+                    CONFERMA
+                </button>
+            </div>
+            <div class="form-group text-center">
+                Sei già registrato? <a href="/auth/login">LOGIN</a>
+            </div>
+            <div class="form-group text-center">
+                Non sei registrato? <a href="/auth/signup">SIGNUP</a>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-3"></div>
+</div>

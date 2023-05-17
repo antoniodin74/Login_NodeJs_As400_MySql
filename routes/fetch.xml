@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<BollaEt xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <IdentificativoUnivocoBolla>7ba01f46-3bd7-4c13-9dcd-5827bb2508b0</IdentificativoUnivocoBolla>
+  <TipoBolla>EX</TipoBolla>
+  <TipoFormulario>EX</TipoFormulario>
+  <TipoDichiarazione>PressoDogana</TipoDichiarazione>
+  <TipoSpedizione />
+  <DataAccettazione>2022-10-20T00:00:00</DataAccettazione>
+  <NumeroArticoli>2</NumeroArticoli>
+  <TotaleMassaLorda>11470.00000</TotaleMassaLorda>
+  <TotaleMassaNetta>9240.00000</TotaleMassaNetta>
+  <TotaleColli>8000</TotaleColli>
+  <DoganaPresentazione>IT281100</DoganaPresentazione>
+  <SpeditoreEsportatore>
+    <RagioneSociale>FRONERI ITALY SRL</RagioneSociale>
+    <Indirizzo>VIA ASI CONSORTILE 7 N.16</Indirizzo>
+    <Cap>03013</Cap>
+    <Citta>FERENTINO (FR)</Citta>
+    <Paese>IT</Paese>
+    <Eori>IT09636960966</Eori>
+  </SpeditoreEsportatore>
+  <Destinatario>
+    <RagioneSociale>DREYER'S GRAND ICE CREAM</RagioneSociale>
+    <Indirizzo>380 WILLOW SPRINGS LANE</Indirizzo>
+    <Cap>174068400</Cap>
+    <Citta>YORK PA</Citta>
+    <Paese>US</Paese>
+    <Eori>US0</Eori>
+  </Destinatario>
+  <PaeseSpedizione>IT</PaeseSpedizione>
+  <PaeseDestinazione>US</PaeseDestinazione>
+  <NumeroProgressivoAnnualePratica>63660</NumeroProgressivoAnnualePratica>
+  <UfficioDestinazione />
+  <EstremiRegistrazione>
+    <DataEsito>2022-10-20T00:00:00</DataEsito>
+    <SerieRegistro />
+    <NumeroRegistrazione>93292</NumeroRegistrazione>
+    <A93>001814</A93>
+    <Cin>S</Cin>
+    <CodiceRegistro>1</CodiceRegistro>
+    <Conto>013339</Conto>
+    <Mrn>22ITQWR010093292E0</Mrn>
+  </EstremiRegistrazione>
+  <NumeroCarico xsi:nil="true" />
+  <AnnoCarico xsi:nil="true" />
+  <Articoli>
+    <Articolo>
+      <NumeroArticolo>1</NumeroArticolo>
+      <DescrizioneMerce>GELATI</DescrizioneMerce>
+      <AltreIndicazioni />
+      <NomenclaturaCombinata>21050091</NomenclaturaCombinata>
+      <Containers>
+        <Sigla>TEMU9376695</Sigla>
+      </Containers>
+      <Regime>1000</Regime>
+      <MassaLorda>11470.00000</MassaLorda>
+      <MassaNetta>9240.00000</MassaNetta>
+      <UnitaSupplementare xsi:nil="true" />
+      <ContieneUnitaSupplementare>false</ContieneUnitaSupplementare>
+      <Imballaggi />
+    </Articolo>
+  </Articoli>
+</BollaEt>

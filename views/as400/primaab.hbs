@@ -1,0 +1,112 @@
+<style>
+    .titolo {
+        background-color: #79ffff;
+        color: rgb(40, 41, 48);
+        border: 1px solid rgb(40, 41, 48);
+        border-radius: 50px 20px;
+    }
+    #lista_bolle_doganali_export.dataTable tbody tr {
+        background-color: #eaffff;
+    }
+    #lista_bolle_doganali_export.dataTable thead tr {
+        background-color: #eaffff;
+    }
+    .button {
+        background-color: #79ffff;
+        color: rgb(40, 41, 48);
+        border: 1px solid rgb(40, 41, 48);
+        border-radius: 50px 20px;
+    }
+    .dt-button {
+        background-color: #79ffff !important;
+        color: rgb(40, 41, 48) !important;
+        border: 1px solid rgb(40, 41, 48) !important;
+        border-radius: 50px 20px !important;
+    }
+    .paginate_button {
+        //background-color: #79ffff !important;
+        color: rgb(40, 41, 48) !important;
+    }
+    .paginate_button a {
+        background-color: #79ffff !important;
+        color: rgb(40, 41, 48) !important;
+        border: 1px solid rgb(40, 41, 48) !important;
+        border-radius: 50px 20px !important;
+    }
+    </style>
+
+<h6 class="titolo text-center">LISTA BOLLE DOGANALI EXPORT (Dettaglio)</h6>
+
+<p></p>
+<table id="lista_bolle_doganali_export" class="compact hover order-column" style="width:100%">
+        <thead>
+            <tr>
+              <th>Anno</th>
+              <th>Numero</th>
+              <th>Progressivo</th>
+              <th>Tipo</th>
+              <th>Numero Bolla</th>
+              <th>Data</th>
+              <th>Tipologia</th>
+              <th>Cntr</th>
+              <th>Mrn</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each bolla}}
+            <tr>
+              <td>{{this.LAARE0}}</td>
+              <td>{{this.LANRE0}}</td>
+              <td>{{this.LAPRE0}}</td>
+              <td>{{this.LATBO0}}</td>
+              <td>{{this.LABNR0}}</td>
+              <td>{{this.LABDT0}}</td>
+              <td>{{this.LABTI0}}</td>
+              <td>{{this.LACTR0}}</td>
+              <td>{{this.LAMRN0}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+        <!--<tfoot>
+            <tr>
+              <th>S</th>
+              <th>Anno reg.</th>
+              <th>Nr. reg.</th>
+              <th>Prg. reg.</th>
+              <th>Tipo bolla</th>
+              <th>Numero</th>
+              <th>Data</th>
+              <th>Tipologia</th>
+              <th>Cntr</th>
+              <th>Mrn</th>
+            </tr>
+        </tfoot>-->
+    </table>
+
+
+
+    <script>
+      $(document).ready(function() {
+          var table = $('#lista_bolle_doganali_export').DataTable( {
+              dom: 'Bfrtip',
+              buttons: [
+                  'copy', 'csv', 'excel', 'pdf', 'print'
+              ],
+              select: {
+              style:    'os',
+              selector: 'td:first-child'
+              },
+              rowCallback: function(row, data, index){
+                //$(row).find('td:eq(1)').css('color', 'blue');
+                //$(row).find('td:eq(2)').css('color', 'blue');
+                //$(row).find('td:eq(4)').css('color', 'red');
+                //$(row).find('td:eq(5)').css('color', 'green');
+            }
+          } );
+
+          $('#lista_bolle_doganali_export tbody').on('click', 'td', function () {
+            var data = table.row($(this).parents('tr')).data();
+            alert(data[5]);
+          });
+      } );
+    </script>

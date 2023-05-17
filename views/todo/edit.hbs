@@ -1,0 +1,81 @@
+<script>
+    async function updateTodo(f) {
+        const form = document.getElementById('{{this.id}}');
+        try {
+        const res = await axios.patch('/todo/'+form.name,
+            {
+                nometodo : form.nometodo.value,
+                descrizionetodo : form.descrizionetodo.value,
+                completatodo: form.btnconferma.value
+            }
+        );
+        Swal.fire({
+            type : 'success',
+            text : 'Modifica effettuata con successo',
+            icon: 'success'
+        }).then (() =>{location.href = '/todo'});
+        } catch (e) {
+            Swal.fire(e.message)
+        }
+    }
+
+    async function completaTodo(f) {
+        const form = document.getElementById('{{this.id}}');
+        try {
+          
+        const res = await axios.patch('/todo/'+form.name,
+            {
+                nometodo : form.nometodo.value,
+                descrizionetodo : form.descrizionetodo.value,
+                completatodo: form.btncompleta.value
+            }
+        );
+        Swal.fire({
+            type : 'success',
+            text : 'Operazione riuscita',
+            icon: 'success'
+        }).then (() =>{location.href = '/todo'});
+        } catch (e) {
+            Swal.fire(e.message)
+        }
+    }
+</script>
+<h1>MODIFICA
+    <small class="text-muted">
+        ({{completed completato}})
+    </small>
+</h1>
+<form class="was-validated" name="{{this.id}}" id="{{this.id}}">
+<!--<form onsubmit="updateTodo(this); return false" class="was-validated" name="{{this.id}}">-->
+    <div class="mb-3">
+        <label for="nometodo" class="form-label">Nome Todo</label>
+        <textarea class="form-control" name="nometodo" id="nometodo" placeholder="Required nome todo" required>{{nometodo}}</textarea>
+        <div class="invalid-feedback">
+        Please enter a nome in the textarea.
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="descrizionetodo" class="form-label">Descrizione Todo</label>
+        <textarea class="form-control" name="descrizionetodo" id="descrizionetodo" placeholder="Required descrizione todo" required>{{descrizionetodo}}</textarea>
+        <div class="invalid-feedback">
+        Please enter a descrizione in the textarea.
+        </div>
+    </div>
+    <button onclick="updateTodo(this); return false" class="btn btn-primary" id="btnconferma" name="btnconferma" value="{{completato}}" title="UPDATE">
+        Conferma
+    </button>
+    {{#if (isEqual this.completato 0)}}
+    <button onclick="completaTodo(this); return false" class="btn btn-danger" id="btncompleta" name="btncompleta" value="1" title="Completa">
+        Completa
+    </button>
+    {{else}}
+    <button onclick="completaTodo(this); return false" class="btn btn-danger" id="btncompleta" name="btncompleta" value="0" title="Completa">
+        Riapri
+    </button>
+    {{/if}}
+    <!--<button type="submit" class="btn btn-primary" value="UPDATE" title="UPDATE">
+         Conferma
+    </button>-->
+</form>
+
+
